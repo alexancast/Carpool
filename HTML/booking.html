@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Booking</title>
+    <link rel="stylesheet" href="../CSS/stylesheet.css"> <!-- Replace with the actual path to your stylesheet -->
+
+</head>
+
+<body>
+    <script src="../JS/booking.js" type="module"></script>
+
+    <p id="name"></p>
+    <div class="profile-button" id="profile-button">
+        <img src="../Images/profile.png" alt="Profile Icon">
+    </div>
+
+
+    <div class="profile-menu" id="profile-menu">
+        <ul>
+
+            <li><a href="../HTML/my_bookings.html">Mina bokningar</a></li>
+            <div class="separator"></div>
+            <li><a href="#" id="logout">Logga ut</a></li>
+        </ul>
+    </div>
+
+    <div class="login-container">
+        <h2>Boka bil</h2>
+        <div class="form-field">
+            <label for="pickup-date">Starttid:</label>
+            <input type="datetime-local" id="pickup-date" name="pickup-date">
+        </div>
+        <div class="form-field">
+            <label for="dropoff-date">Sluttid:</label>
+            <input type="datetime-local" id="dropoff-date" name="dropoff-date">
+        </div>
+        <div class="form-field-checkbox">
+            <label for="radio">Radio</label>
+            <input type="checkbox" id="radio" name="radio">
+        </div>
+        <div class="form-field-checkbox">
+            <label for="bluelights">Utryckning</label>
+            <input type="checkbox" id="bluelights" name="bluelights">
+        </div>
+        <button class="login-button" id="search">Sök</button>
+    </div>
+    <div class="cars-container" id="cars-container">
+
+    </div>
+
+</body>
+<footer class="copyright">
+    &copy; 2023 Alexander Castman. Alla rättigheter förbehållna.
+</footer>
+
+
+</html>

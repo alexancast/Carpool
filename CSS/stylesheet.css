@@ -1,0 +1,293 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffcc33;
+    margin: 0;
+    padding: 0;
+}
+
+.login-container {
+    max-width: 400px;
+    margin: 50px auto;
+    margin-bottom: 0px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cars-container {
+    max-width: 400px;
+    margin: 100px auto;
+    margin-top: 20px;
+    display: none;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.form-field-checkbox {
+    margin-bottom: 20px;
+}
+
+.form-field {
+    margin-bottom: 20px;
+}
+
+.form-field label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-field input {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    vertical-align: middle;
+}
+
+.login-button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #14518b;
+    color: white;
+    cursor: pointer;
+}
+
+.login-button:hover {
+    background-color: #0c3256;
+}
+
+.forgot-password {
+    text-align: center;
+    display: block;
+    margin-top: 20px;
+}
+
+.create-account-button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #14518b;
+    color: white;
+    cursor: pointer;
+}
+
+.create-account-button:hover {
+    background-color: #0c3256;
+}
+
+.account-creation-container {
+    max-width: 400px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.car {
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid #000;
+    border-radius: 10px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 10px;
+    align-items: center;
+}
+
+.car-details {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+
+    color: #333;
+
+}
+
+.booking-button {
+    background-color: #14518b;
+    /* Button background color */
+    color: white;
+    /* Text color */
+    border: none;
+    border-radius: 20px;
+    /* Rounded corners */
+    padding: 10px 20px;
+    /* Adjust padding as needed for button size */
+    cursor: pointer;
+    float: right;
+    /* Align to the right within the parent div */
+}
+
+.booking-button:hover {
+    background-color: #0c3256;
+}
+
+/* Style for the profile button */
+.profile-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 2;
+
+}
+
+.profile-button img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Style for the profile menu */
+.profile-menu {
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    width: 200px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 3;
+}
+
+#name {
+    position: fixed;
+    top: 10px;
+    right: 60px;
+    cursor: pointer;
+    z-index: 2;
+    align-self: right;
+    text-align: right;
+}
+
+.profile-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.profile-menu li {
+    padding: 10px;
+}
+
+.profile-menu a {
+    text-decoration: none;
+    color: #333;
+}
+
+.profile-menu a:hover {
+    background-color: #f0f0f0;
+}
+
+/* Stil för copyright-container som använder flexbox för att placera texten längst ner */
+.copyright {
+    display: flex;
+    font-size: 10px;
+    background-color: #14518b;
+
+    justify-content: center;
+    align-items: flex-end;
+    color: #fff;
+    padding: 10px 0;
+    position: absolute;
+    /* margin-bottom: 20px; */
+    bottom: 0;
+    width: 100%;
+
+}
+
+.error-message {
+    /* display: none; */
+    text-align: center;
+    color: red;
+}
+
+.booking-panel {
+    display: flex;
+    justify-content: center;
+}
+
+/* CSS for the booking entries */
+.booking-entry {
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid #000;
+    border-radius: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 0px;
+    margin: 10px;
+    align-items: left;
+    flex-direction: row;
+    ;
+}
+
+/* Align text to the left within <p> elements inside .booking-entry */
+.booking-entry p {
+    text-align: left;
+    margin: 2px 0;
+    padding: 0px 0;
+    color: #333;
+    font-size: 10px;
+}
+
+.booking-entry h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: bolder;
+    text-align: left;
+    margin: 5px 0;
+    padding: 0px 0;
+}
+
+#prompt p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+
+    text-align: center;
+    margin: 5px 0;
+    padding: 0px 0;
+}
+
+/* CSS for text content container */
+.text-content {
+    display: inline-block;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* CSS for remove button container */
+.remove-button-container {
+    display: inline-block;
+    text-align: right;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.separator {
+    border-top: 1px solid #ccc;
+}

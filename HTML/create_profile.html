@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Creation Page</title>
+    <link rel="stylesheet" href="../CSS/stylesheet.css">
+
+</head>
+
+<body>
+    <script src="../JS/create_profile.js" type="module"></script>
+
+    <div class="account-creation-container">
+        <h2>Skapa profil</h2>
+        <div>
+            <!-- <div class="form-field">
+                <label for="first-name">Förnamn</label>
+                <input type="text" id="first-name" name="first-name" required>
+            </div>
+            <div class="form-field">
+                <label for="surname">Efternamn</label>
+                <input type="text" id="surname" name="surname" required>
+            </div> -->
+            <div class="form-field">
+                <label for="email">E-postadress</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-field">
+                <label for="password">Lösenord</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-field">
+                <label for="password">Upprepa lösenord</label>
+                <input type="password" id="repeat-password" name="password" required>
+            </div>
+
+            <p class="error-message" id="error-message"></p>
+            <!-- <div class="form-field">
+                <label for="department">Grupp</label>
+                <input type="text" id="department" name="department">
+            </div> -->
+            <button class="create-account-button" id="submit">Skapa profil</button>
+            <a href="index.html" class="forgot-password">Logga in</a>
+        </div>
+    </div>
+
+</body>
+<footer class="copyright">
+    &copy; 2023 Alexander Castman. Alla rättigheter förbehållna.
+</footer>
+
+
+</html>
