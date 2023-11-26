@@ -398,7 +398,7 @@ input:focus {
 #center-container {
     text-align: center;
     width: 100vh;
-    overflow: auto;
+    overflow-y: auto;
     box-shadow: #000;
     border-radius: 15px;
 
