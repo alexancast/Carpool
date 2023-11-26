@@ -441,8 +441,6 @@ input:focus {
 }
 
 
-
-
 .title {
     font-size: 50px;
     font-weight: bold;
@@ -457,9 +455,7 @@ input:focus {
     width: 85%;
     padding: 5%;
     backdrop-filter: blur(30px);
-    -moz-filter: blur(30px);
-    -webkit-filter: blur(30px);
-    -o-filter: blur(30px);
+
     border-radius: 10px;
     border-width: 1px;
     border-color: white;

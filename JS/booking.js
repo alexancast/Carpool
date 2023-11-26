@@ -49,7 +49,7 @@ function setMinTime() {
     // Set the min attribute for dropoff-date input, initially same as pickup date
     const dropoffDateInput = document.getElementById("dropoff-date");
     dropoffDateInput.setAttribute("min", currentDateTime);
-    dropoffDateInput.setAttribute("value", dropoffTime);
+    dropoffDateInput.setAttribute("value", currentDateTime);
 
     // Add an event listener to pickupDateInput to update the min attribute of dropoffDateInput when it changes
     pickupDateInput.addEventListener("change", function () {
