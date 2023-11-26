@@ -44,7 +44,7 @@ body::before {
 }
 
 .cars-container {
-    max-width: 500px;
+    max-width: 90%;
     margin: 100px auto;
     margin-top: 20px;
     overflow: auto;
