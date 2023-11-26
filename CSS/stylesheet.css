@@ -26,19 +26,6 @@ body::before {
 
 }
 
-@media (max-width: 768px) {
-
-    /* Styles for screens up to 768px wide (typical mobile devices) */
-    .cars-container {
-        max-width: 100%;
-        /* Adjust as needed */
-        margin: 20px auto;
-        /* Adjust margins for smaller screens */
-    }
-
-    /* Add similar adjustments for other elements */
-}
-
 
 .login-container {
     max-width: 90%;
@@ -454,9 +441,16 @@ input:focus {
 
 }
 
+/* Media query för telefoner med en max skärmstorlek på 768px */
+@media (max-width: 768px) {
+    #center-container {
+        width: 90%;
+    }
+}
+
 #center-container {
     text-align: center;
-    width: 90%;
+    width: 50%;
     overflow-y: auto;
     /* box-shadow: #000; */
     /* border-radius: 15px; */
