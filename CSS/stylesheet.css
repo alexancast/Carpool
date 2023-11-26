@@ -442,7 +442,7 @@ input:focus {
 }
 
 /* Media query för telefoner med en max skärmstorlek på 768px */
-@media (max-width: 900) {
+@media (max-width: 900px) {
     #center-container {
         width: 90%;
     }
