@@ -26,9 +26,22 @@ body::before {
 
 }
 
+@media (max-width: 768px) {
+
+    /* Styles for screens up to 768px wide (typical mobile devices) */
+    .cars-container {
+        max-width: 100%;
+        /* Adjust as needed */
+        margin: 20px auto;
+        /* Adjust margins for smaller screens */
+    }
+
+    /* Add similar adjustments for other elements */
+}
+
 
 .login-container {
-    /* max-width: 500px; */
+    max-width: 90%;
     margin: auto auto;
     align-self: center;
     text-align: center;
@@ -36,7 +49,7 @@ body::before {
 }
 
 .account-creation-container {
-    /* max-width: 500px; */
+    max-width: 90%;
     margin: auto auto;
     align-self: center;
     text-align: center;
