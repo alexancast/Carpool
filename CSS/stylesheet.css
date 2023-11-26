@@ -1,109 +1,127 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #ffcc33;
+    background-color: #14518b;
     margin: 0;
     padding: 0;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    overflow: hidden;
 }
 
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../Images/background.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(30px);
+    z-index: -1;
+
+}
+
+
 .login-container {
-    max-width: 400px;
-    margin: 50px auto;
-    margin-bottom: 0px;
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: auto auto;
+    align-self: center;
+    text-align: center;
+
+}
+
+.account-creation-container {
+    /* max-width: 500px; */
+    margin: auto auto;
+    align-self: center;
+    text-align: center;
+    border: 1px solid #000;
 }
 
 .cars-container {
-    max-width: 400px;
+    max-width: 500px;
     margin: 100px auto;
     margin-top: 20px;
     display: none;
-    background: #fff;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
     text-align: center;
-    color: #333;
+    font-size: 20px;
+    font-weight: lighter;
+    color: white;
 }
 
 h1 {
     text-align: center;
-    color: #333;
+    font-size: 50px;
+    color: white;
 }
 
-.form-field-checkbox {
-    margin-bottom: 20px;
-}
-
-.form-field {
-    margin-bottom: 20px;
-}
-
-.form-field label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-.form-field input {
-    width: 95%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    vertical-align: middle;
-}
 
 .login-button {
-    width: 100%;
+    width: 150px;
+    height: 50px;
     padding: 10px;
     border: none;
     border-radius: 4px;
-    background-color: #14518b;
-    color: white;
+    margin: 20px;
+    border: 2px solid #ffcc33;
+    background: none;
+    color: #ffcc33;
     cursor: pointer;
+    font-weight: bold;
 }
 
 .login-button:hover {
-    background-color: #0c3256;
+    background-color: #ffcc33;
+    color: #0c3256;
 }
 
 .forgot-password {
+    color: white;
+    font-size: 10px;
     text-align: center;
     display: block;
-    margin-top: 20px;
+
+    display: inline-block;
+
+
+}
+
+.forgot-password a {
+    /* text-decoration: none; */
+    color: #fff;
 }
 
 .create-account-button {
-    width: 100%;
+    width: 150px;
+    height: 50px;
     padding: 10px;
     border: none;
     border-radius: 4px;
-    background-color: #14518b;
-    color: white;
+    margin: 20px;
+    background-color: #ffcc33;
+    color: #0c3256;
     cursor: pointer;
+    font-weight: bold;
 }
 
 .create-account-button:hover {
     background-color: #0c3256;
-}
-
-.account-creation-container {
-    max-width: 400px;
-    margin: 50px auto;
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #fff;
 }
 
 .car {
     display: flex;
     justify-content: space-between;
-    border: 2px solid #000;
+    border: 1px solid white;
     border-radius: 10px;
     padding-top: 0px;
     padding-bottom: 0px;
@@ -117,66 +135,28 @@ h1 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 10px;
 
-    color: #333;
+    color: white;
+}
 
+.car-details h1 {
+    font-size: 20px;
+    text-align: left;
 }
 
 .booking-button {
-    background-color: #14518b;
-    /* Button background color */
+    background: none;
     color: white;
-    /* Text color */
-    border: none;
+    border: 1px solid white;
     border-radius: 20px;
-    /* Rounded corners */
     padding: 10px 20px;
-    /* Adjust padding as needed for button size */
     cursor: pointer;
     float: right;
-    /* Align to the right within the parent div */
 }
 
 .booking-button:hover {
-    background-color: #0c3256;
-}
-
-/* Style for the profile button */
-.profile-button {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    cursor: pointer;
-    z-index: 2;
-
-}
-
-.profile-button img {
-    width: 30px;
-    height: 30px;
-}
-
-/* Style for the profile menu */
-.profile-menu {
-    position: fixed;
-    top: 60px;
-    right: 20px;
-    width: 200px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-    display: none;
-    z-index: 3;
-}
-
-#name {
-    position: fixed;
-    top: 10px;
-    right: 60px;
-    cursor: pointer;
-    z-index: 2;
-    align-self: right;
-    text-align: right;
+    border: none;
+    background-color: white;
+    color: #0c3256;
 }
 
 .profile-menu ul {
@@ -198,25 +178,22 @@ h1 {
     background-color: #f0f0f0;
 }
 
-/* Stil för copyright-container som använder flexbox för att placera texten längst ner */
+
 .copyright {
     display: flex;
     font-size: 10px;
-    background-color: #14518b;
-
+    opacity: 50%;
     justify-content: center;
     align-items: flex-end;
     color: #fff;
     padding: 10px 0;
     position: absolute;
-    /* margin-bottom: 20px; */
     bottom: 0;
     width: 100%;
 
 }
 
 .error-message {
-    /* display: none; */
     text-align: center;
     color: red;
 }
@@ -226,11 +203,10 @@ h1 {
     justify-content: center;
 }
 
-/* CSS for the booking entries */
 .booking-entry {
     display: flex;
     justify-content: space-between;
-    border: 2px solid #000;
+    border: 1px solid white;
     border-radius: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -242,12 +218,12 @@ h1 {
     ;
 }
 
-/* Align text to the left within <p> elements inside .booking-entry */
 .booking-entry p {
     text-align: left;
     margin: 2px 0;
     padding: 0px 0;
-    color: #333;
+    color: white;
+    opacity: 50%;
     font-size: 10px;
 }
 
@@ -264,21 +240,23 @@ h1 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
 
+    color: white;
+    opacity: 50%;
     text-align: center;
     margin: 5px 0;
     padding: 0px 0;
 }
 
-/* CSS for text content container */
 .text-content {
     display: inline-block;
     width: 70%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+
 }
 
-/* CSS for remove button container */
 .remove-button-container {
     display: inline-block;
     text-align: right;
@@ -288,6 +266,164 @@ h1 {
     align-items: center;
 }
 
+
 .separator {
     border-top: 1px solid #ccc;
+}
+
+.top-div {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.profile-button {
+    position: relative;
+    margin: 10px;
+    cursor: pointer;
+    z-index: 2;
+
+}
+
+.profile-button img {
+    width: 50px;
+    height: 50px;
+}
+
+.profile-menu {
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    width: 200px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 3;
+}
+
+#name {
+    position: relative;
+    z-index: 2;
+    align-self: right;
+    text-align: right;
+    color: white;
+    font-size: 10px;
+}
+
+input {
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid white;
+    background-color: transparent;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    outline: none;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    vertical-align: middle;
+    line-height: 2;
+
+}
+
+::placeholder {
+    color: white;
+    opacity: 50%;
+
+}
+
+input:focus {
+    /* You can add styles for when the input is focused here */
+}
+
+
+
+#description {
+    color: white;
+    text-align: left;
+    font-size: 10px;
+    line-height: 2;
+    opacity: 50%;
+}
+
+#member {
+
+    background: none;
+    border: 1px solid #fff;
+    color: #fff;
+    border-color: white;
+
+}
+
+#member:hover {
+
+    color: #0c3256;
+    border-color: #0c3256;
+
+}
+
+#centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+
+#top-container {
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    height: 100vh;
+
+}
+
+.title {
+    font-size: 50px;
+    font-weight: bold;
+    font-family: Verdana, Geneva, sans-serif;
+    color: white;
+    margin-bottom: 20px;
+
+}
+
+#center-container {
+    text-align: center;
+    width: 100vh;
+
+    box-shadow: #000;
+    border-radius: 15px;
+
+}
+
+.checkboxes {
+    display: flex;
+    justify-content: center;
+
+}
+
+.form-field-checkbox {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    color: white;
+}
+
+.form-field-checkbox:last-child {
+    margin-right: 0;
+}
+
+.pickup-label {
+    color: white;
+    font-size: 10px;
+    text-align: left;
+    align-self: left;
+    align-items: left;
+    display: flex;
+    margin-bottom: 0px;
 }

@@ -4,31 +4,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>GB BPOOL</title>
     <link rel="stylesheet" href="../CSS/stylesheet.css">
 </head>
 
 <body>
+
     <script src="../JS/login.js" type="module"></script>
-    <div class="logo" id="polisen-logo">
-        <h1>Bilbokning</h1>
+    <div id="centered-container">
+        <div id="center-container">
 
-    </div>
-    <div class="login-container">
-        <h2>Logga in</h2>
-        <div class="form-field">
-            <label for="username">E-postadress</label>
-            <input type="text" id="username" name="username">
-        </div>
-        <div class="form-field">
-            <label for="password">Lösenord</label>
-            <input type="password" id="password" name="password">
-        </div>
-        <button class="login-button" id="submit">Logga in</button>
-        <p class="error-message" id="error-message"></p>
-        <a href="create_profile.html" class="forgot-password">Skapa profil</a>
-    </div>
+            <div class="title">PatRoX</div>
 
+            <div class="login-container">
+                <h2>Ett enkelt och smidigt system för att boka bilar.</h2>
+                <div class="form-field">
+
+                    <input type="text" id="username" class="input-field" name="username" placeholder="E-postadress">
+                </div>
+                <div class="form-field">
+
+                    <input type="password" id="password" name="password" placeholder="Lösenord">
+                </div>
+                <p id="description">Välkommen till vår bilpoolbokningssida, som är din nyckel till effektivitet och
+                    smidighet i
+                    ditt arbete.
+                    Genom att logga in här får du tillgång till vår specialanpassade bilpool, skapad för att underlätta
+                    och
+                    optimera dina arbetsuppgifter. Vi förstår vikten av att kunna förflytta dig snabbt och enkelt i
+                    tjänsten,
+                    och med vårt system kan du boka sektionens fordon i ett ögonblick.
+                </p>
+                <button class="login-button" id="submit">LOGGA IN</button>
+                <button class="login-button" id="member">BLI MEDLEM</button>
+                <p class="error-message" id="error-message"></p>
+                <!-- <a href="create_profile.html" class="forgot-password">Skapa profil</a> -->
+            </div>
+        </div>
+    </div>
 </body>
 
 <footer class="copyright">

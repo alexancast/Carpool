@@ -12,39 +12,33 @@
 <body>
     <script src="../JS/create_profile.js" type="module"></script>
 
-    <div class="account-creation-container">
-        <h2>Skapa profil</h2>
-        <div>
-            <!-- <div class="form-field">
-                <label for="first-name">Förnamn</label>
-                <input type="text" id="first-name" name="first-name" required>
-            </div>
-            <div class="form-field">
-                <label for="surname">Efternamn</label>
-                <input type="text" id="surname" name="surname" required>
-            </div> -->
-            <div class="form-field">
-                <label for="email">E-postadress</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-field">
-                <label for="password">Lösenord</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <div class="form-field">
-                <label for="password">Upprepa lösenord</label>
-                <input type="password" id="repeat-password" name="password" required>
-            </div>
 
-            <p class="error-message" id="error-message"></p>
-            <!-- <div class="form-field">
-                <label for="department">Grupp</label>
-                <input type="text" id="department" name="department">
-            </div> -->
-            <button class="create-account-button" id="submit">Skapa profil</button>
-            <a href="index.html" class="forgot-password">Logga in</a>
+    <div id="centered-container">
+        <div id="center-container">
+
+            <div class="title">PatRoX</div>
+
+            <div class="login-container">
+                <h2>Skapa en ny användarprofil.</h2>
+                <div class="form-field">
+                    <input type="email" id="email" name="email" required placeholder="E-postadress">
+                </div>
+                <div class="form-field">
+                    <input type="password" id="password" name="password" required placeholder="Lösenord">
+                </div>
+                <div class="form-field">
+                    <input type="password" id="repeat-password" name="password" required placeholder="Upprepa Lösenord">
+                </div>
+                <button class="login-button" id="submit">REGISTRERA</button>
+                <p class="error-message" id="error-message"></p>
+                <div class="forgot-password">Har du redan ett konto? <a href="index.html" class="forgot-password">Logga
+                        in</a></div>
+
+            </div>
         </div>
     </div>
+
+
 
 </body>
 <footer class="copyright">

@@ -12,12 +12,12 @@
 <body>
     <script src="../JS/booking.js" type="module"></script>
 
-    <p id="name"></p>
-    <div class="profile-button" id="profile-button">
-        <img src="../Images/profile.png" alt="Profile Icon">
+    <div class="top-div">
+        <p id="name"></p>
+        <div class="profile-button" id="profile-button">
+            <img src="../Images/profile.png" alt="Profile Icon">
+        </div>
     </div>
-
-
     <div class="profile-menu" id="profile-menu">
         <ul>
 
@@ -27,28 +27,37 @@
         </ul>
     </div>
 
-    <div class="login-container">
-        <h2>Boka bil</h2>
-        <div class="form-field">
-            <label for="pickup-date">Starttid:</label>
-            <input type="datetime-local" id="pickup-date" name="pickup-date">
-        </div>
-        <div class="form-field">
-            <label for="dropoff-date">Sluttid:</label>
-            <input type="datetime-local" id="dropoff-date" name="dropoff-date">
-        </div>
-        <div class="form-field-checkbox">
-            <label for="radio">Radio</label>
-            <input type="checkbox" id="radio" name="radio">
-        </div>
-        <div class="form-field-checkbox">
-            <label for="bluelights">Utryckning</label>
-            <input type="checkbox" id="bluelights" name="bluelights">
-        </div>
-        <button class="login-button" id="search">Sök</button>
-    </div>
-    <div class="cars-container" id="cars-container">
 
+    <div id="top-container">
+        <div id="center-container">
+            <div class="login-container">
+                <h2>Boka bil</h2>
+                <div class="form-field" id="pickup-field">
+                    <label for="datetime" class="pickup-label">Starttid:</label>
+
+                    <input type="datetime-local" id="pickup-date" name="pickup-date" placeholder="Starttid">
+                </div>
+                <div class="form-field">
+                    <label for="datetime" class="pickup-label">Sluttid:</label>
+
+                    <input type="datetime-local" id="dropoff-date" name="dropoff-date" placeholder="Sluttid">
+                </div>
+                <div class="checkboxes">
+                    <div class="form-field-checkbox">
+                        <label for="radio">Radio</label>
+                        <input type="checkbox" id="radio" name="radio">
+                    </div>
+                    <div class="form-field-checkbox">
+                        <label for="bluelights">Utryckning</label>
+                        <input type="checkbox" id="bluelights" name="bluelights">
+                    </div>
+                </div>
+                <button class="login-button" id="search">Sök</button>
+            </div>
+            <div class="cars-container" id="cars-container">
+
+            </div>
+        </div>
     </div>
 
 </body>

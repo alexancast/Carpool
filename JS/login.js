@@ -23,9 +23,16 @@ const database = getDatabase(app)
 
 
 const submit = document.getElementById("submit");
+const member = document.getElementById("member");
 const usernameInput = document.getElementById("username");
 const passwordInput = document.getElementById("password");
 const errorDisplay = document.getElementById("error-message"); // Create an element to display errors
+
+member.addEventListener("click", function () {
+
+    window.location.href = "../HTML/create_profile.html";
+
+})
 
 submit.addEventListener("click", async function () {
     const email = usernameInput.value;
