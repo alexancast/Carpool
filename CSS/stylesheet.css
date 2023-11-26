@@ -372,7 +372,8 @@ input:focus {
     justify-content: center;
     align-items: center;
     height: 100vh;
-
+    width: 90%;
+    margin: auto;
 }
 
 #top-container {
@@ -380,6 +381,8 @@ input:focus {
     justify-content: center;
     align-items: top;
     height: 100vh;
+    width: 90%;
+    margin: auto;
 
 }
 
