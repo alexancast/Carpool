@@ -136,10 +136,10 @@ function bookCar(reg, pickupDate, dropoffDate, user, booking_id) {
     // Use the set function to add the booking to the database
     set(bookingRef, bookingData)
         .then(() => {
-            console.log(`Booking with ID ${booking_id} added successfully.`);
+            // console.log(`Booking with ID ${booking_id} added successfully.`);
         })
         .catch((error) => {
-            console.error(`Error adding booking: ${error}`);
+            // console.error(`Error adding booking: ${error}`);
         });
 
 }

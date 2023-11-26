@@ -47,8 +47,7 @@ body::before {
     max-width: 500px;
     margin: 100px auto;
     margin-top: 20px;
-    /* display: none; */
-    /* padding: 20px; */
+    overflow: auto;
 }
 
 h2 {
@@ -399,7 +398,7 @@ input:focus {
 #center-container {
     text-align: center;
     width: 100vh;
-
+    overflow: auto;
     box-shadow: #000;
     border-radius: 15px;
 
@@ -436,4 +435,11 @@ input:focus {
     color: white;
     font-size: 12px;
     opacity: 50%;
+}
+
+#todays-bookings-text {
+    opacity: 100%;
+    color: white;
+    font-size: 12px;
+    line-height: 2;
 }

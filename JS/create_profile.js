@@ -52,12 +52,12 @@ async function createProfile() {
     try {
         const userCredentials = await createUserWithEmailAndPassword(auth, email, password);
 
-        console.log(userCredentials.user);
+        (userCredentials.user);
         error.textContent = "Verifieringslänk har skickats till din e-post."
 
     } catch (error) {
 
-        console.log("Could not create profile");
+        ("Could not create profile");
 
     }
 

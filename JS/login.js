@@ -64,12 +64,9 @@ async function monitorAuthState() {
         if (user) {
 
             if (user.emailVerified) {
-
-                console.log(user);
                 window.location.href = "../HTML/booking.html";
             } else {
-                console.log(user);
-                console.log("Please check your email to verify your account.");
+                // console.log("Please check your email to verify your account.");
             }
 
 
