@@ -47,8 +47,8 @@ body::before {
     max-width: 500px;
     margin: 100px auto;
     margin-top: 20px;
-    display: none;
-    padding: 20px;
+    /* display: none; */
+    /* padding: 20px; */
 }
 
 h2 {
@@ -129,12 +129,12 @@ h1 {
     padding-right: 20px;
     margin: 10px;
     align-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .car-details {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 10px;
-
     color: white;
 }
 
@@ -207,6 +207,7 @@ h1 {
     display: flex;
     justify-content: space-between;
     border: 1px solid white;
+    background-color: rgba(0, 0, 0, 0.3);
     border-radius: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -215,7 +216,6 @@ h1 {
     margin: 10px;
     align-items: left;
     flex-direction: row;
-    ;
 }
 
 .booking-entry p {
@@ -262,7 +262,8 @@ h1 {
     text-align: right;
     width: 30%;
     display: flex;
-    justify-content: center;
+    justify-content: right;
+    margin-right: 10px;
     align-items: center;
 }
 
@@ -429,4 +430,10 @@ input:focus {
     align-items: left;
     display: flex;
     margin-bottom: 0px;
+}
+
+#no-search-results {
+    color: white;
+    font-size: 12px;
+    opacity: 50%;
 }

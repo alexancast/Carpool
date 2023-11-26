@@ -19,11 +19,14 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app)
 const database = getDatabase(app)
 
+const allBookings = [];
+
 
 const button = document.getElementById("logout");
 const profileButton = document.getElementById('profile-button');
 const profileMenu = document.getElementById('profile-menu');
 const name = document.getElementById("name");
+const bookingPanel = document.getElementById('booking-entities'); // Get the booking panel div
 
 profileButton.addEventListener('click', () => {
     profileMenu.style.display = profileMenu.style.display === 'block' ? 'none' : 'block';
@@ -57,12 +60,12 @@ button.addEventListener("click", async function () {
     }
 });
 
+
 async function loadBookings() {
 
     // Hämta alla bilar från databasen
     const bilarRef = ref(database, 'cars');
-    const bookingPanel = document.getElementById('booking-entities'); // Get the booking panel div
-
+    allBookings.length = 0;
 
     onValue(bilarRef, (snapshot) => {
         const data = snapshot.val();
@@ -83,71 +86,104 @@ async function loadBookings() {
                     continue;
                 }
 
-                // Create a new div for each booking
-                const bookingDiv = document.createElement('div');
-                bookingDiv.classList.add('booking-entry'); // Add a CSS class for styling
-
-                // Create a container for text content (left content)
-                const textContentContainer = document.createElement('div');
-                textContentContainer.classList.add('text-content');
-
-                // Create content for the booking div
-                const userInfo = document.createElement('h2');
-                userInfo.textContent = `${car.reg}`;
-
-                const pickupInfo = document.createElement('p');
-                pickupInfo.textContent = "Starttid: " + `${iterator.pickup_date}`.replace("T", " ");
-
-                const dropoffInfo = document.createElement('p');
-                dropoffInfo.textContent = "Sluttid: " + `${iterator.dropoff_date}`.replace("T", " ");
-
-                // Append the content to the text content container
-                textContentContainer.appendChild(userInfo);
-                textContentContainer.appendChild(pickupInfo);
-                textContentContainer.appendChild(dropoffInfo);
-
-                // Create a container for the "Remove" button (right content)
-                const removeButtonContainer = document.createElement('div');
-                removeButtonContainer.classList.add('remove-button-container');
-
-                // Create a "Remove" button
-                const removeButton = document.createElement('button');
-                removeButton.setAttribute('class', 'booking-button');
-                removeButton.setAttribute('id', 'remove-button');
-                removeButton.textContent = 'Avboka';
-                removeButton.addEventListener("click", async function () {
-                    await removeBooking(carKey, iterator.booking_id);
-                    await removeAllBookingEntities();
-                    await loadBookings();
+                // Add the booking to the allBookings array
+                allBookings.push({
+                    carKey: carKey,
+                    car: car,
+                    iterator: iterator
                 });
-
-                // Append the "Remove" button to its container
-                removeButtonContainer.appendChild(removeButton);
-
-                // Append the text content container and remove button container to the booking div
-                bookingDiv.appendChild(textContentContainer);
-                bookingDiv.appendChild(removeButtonContainer);
-
-                // Append the booking div to the booking panel
-                bookingPanel.appendChild(bookingDiv);
             }
 
+
+
+
         }
 
-        if (bookingPanel.children.length <= 0) {
+        // Sort the allBookings array by pickup_date
+        allBookings.sort((a, b) => {
+            const pickupDateA = new Date(a.iterator.pickup_date);
+            const pickupDateB = new Date(b.iterator.pickup_date);
+            return pickupDateA - pickupDateB;
+        });
 
-            const bookingDiv = document.createElement('div');
-            bookingDiv.setAttribute('id', 'prompt');
-
-            const dropoffInfo = document.createElement('p');
-            dropoffInfo.textContent = "Jag har inga aktuella bokningar.";
-
-            bookingDiv.appendChild(dropoffInfo);
-            bookingPanel.appendChild(bookingDiv);
-        }
+        displayBookings();
 
     });
 
+}
+
+async function displayBookings() {
+
+    if (allBookings.length <= 0) {
+
+        const bookingDiv = document.createElement('div');
+        bookingDiv.setAttribute('id', 'prompt');
+
+        const dropoffInfo = document.createElement('p');
+        dropoffInfo.textContent = "Jag har inga aktuella bokningar.";
+
+        bookingDiv.appendChild(dropoffInfo);
+        bookingPanel.appendChild(bookingDiv);
+
+    } else {
+        for (let i = 0; i < allBookings.length; i++) {
+            const element = allBookings[i];
+            displayBooking(element);
+        }
+
+    }
+
+}
+
+async function displayBooking(booking) {
+
+    // Create a new div for each booking
+    const bookingDiv = document.createElement('div');
+    bookingDiv.classList.add('booking-entry'); // Add a CSS class for styling
+
+    // Create a container for text content (left content)
+    const textContentContainer = document.createElement('div');
+    textContentContainer.classList.add('text-content');
+
+    // Create content for the booking div
+    const userInfo = document.createElement('h2');
+    userInfo.textContent = `${booking.car.reg}`;
+
+    const pickupInfo = document.createElement('p');
+    pickupInfo.textContent = "Starttid: " + `${booking.iterator.pickup_date}`.replace("T", " ");
+
+    const dropoffInfo = document.createElement('p');
+    dropoffInfo.textContent = "Sluttid: " + `${booking.iterator.dropoff_date}`.replace("T", " ");
+
+    // Append the content to the text content container
+    textContentContainer.appendChild(userInfo);
+    textContentContainer.appendChild(pickupInfo);
+    textContentContainer.appendChild(dropoffInfo);
+
+    // Create a container for the "Remove" button (right content)
+    const removeButtonContainer = document.createElement('div');
+    removeButtonContainer.classList.add('remove-button-container');
+
+    // Create a "Remove" button
+    const removeButton = document.createElement('button');
+    removeButton.setAttribute('class', 'booking-button');
+    removeButton.setAttribute('id', 'remove-button');
+    removeButton.textContent = 'Avboka';
+    removeButton.addEventListener("click", async function () {
+        await removeBooking(booking.carKey, booking.iterator.booking_id);
+        await removeAllBookingEntities();
+        await loadBookings();
+    });
+
+    // Append the "Remove" button to its container
+    removeButtonContainer.appendChild(removeButton);
+
+    // Append the text content container and remove button container to the booking div
+    bookingDiv.appendChild(textContentContainer);
+    bookingDiv.appendChild(removeButtonContainer);
+
+    // Append the booking div to the booking panel
+    bookingPanel.appendChild(bookingDiv);
 }
 
 async function removeBooking(carKey, bookingId) {

@@ -27,9 +27,19 @@ function setMinTime() {
         return `${year}-${month}-${day}T${hours}:${minutes}`;
     }
 
+    function formatDropoffDate(date) {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        const hours = String(date.getHours() + 1).padStart(2, '0');
+        const minutes = String(date.getMinutes()).padStart(2, '0');
+        return `${year}-${month}-${day}T${hours}:${minutes}`;
+    }
+
     // Get the current date and time
     const currentDate = new Date();
     const currentDateTime = formatDate(currentDate);
+    const dropoffTime = formatDropoffDate(currentDate);
 
     // Set the min and value attributes for pickup-date input
     const pickupDateInput = document.getElementById("pickup-date");
@@ -39,7 +49,7 @@ function setMinTime() {
     // Set the min attribute for dropoff-date input, initially same as pickup date
     const dropoffDateInput = document.getElementById("dropoff-date");
     dropoffDateInput.setAttribute("min", currentDateTime);
-    dropoffDateInput.setAttribute("value", currentDateTime);
+    dropoffDateInput.setAttribute("value", dropoffTime);
 
     // Add an event listener to pickupDateInput to update the min attribute of dropoffDateInput when it changes
     pickupDateInput.addEventListener("change", function () {
@@ -258,9 +268,13 @@ function addCarEntitiesToContainer(carsData) {
 
     // Check if there are children in the parent container
     if (parentContainer.children.length > 0) {
-        parentContainer.style.display = "block"; // Set it to 'block' if it has children
+        // parentContainer.style.display = "block"; // Set it to 'block' if it has children
     } else {
-        parentContainer.style.display = "none"; // Set it to 'none' if it has no children
+        // parentContainer.style.display = "none"; // Set it to 'none' if it has no children
+        const details = document.createElement("p");
+        details.textContent = "Inga bilar matchar sökningen.";
+        details.setAttribute("id", "no-search-results");
+        parentContainer.appendChild(details);
     }
 
 }
