@@ -13,60 +13,61 @@
 
 <body>
     <script src="../JS/booking.js" type="module"></script>
-
-    <div class="top-div">
-        <p id="name"></p>
-        <div class="profile-button" id="profile-button">
-            <img src="../Images/profile.png" alt="Profile Icon">
-        </div>
-    </div>
-    <div class="profile-menu" id="profile-menu">
-        <ul>
-
-            <li><a href="../HTML/my_bookings.html">Mina bokningar</a></li>
-            <li><a href="../HTML/todays_bookings.html">Bokningar idag</a></li>
-            <div class="separator"></div>
-            <li><a href="#" id="logout">Logga ut</a></li>
-        </ul>
-    </div>
-
-
-    <div id="top-container">
-        <div id="center-container">
-            <div class="login-container">
-                <h2>Boka bil</h2>
-                <div class="form-field" id="pickup-field">
-                    <label for="pickup-date" class="pickup-label">Starttid:</label>
-
-                    <input type="datetime-local" id="pickup-date" name="pickup-date" placeholder="Starttid"></input>
-                </div>
-                <div class="form-field">
-                    <label for="dropoff-date" class="pickup-label">Sluttid:</label>
-
-                    <input type="datetime-local" id="dropoff-date" name="dropoff-date" placeholder="Sluttid">
-                </div>
-                <div class="checkboxes">
-                    <div class="form-field-checkbox">
-                        <label for="radio">Radio</label>
-                        <input type="checkbox" id="radio" name="radio">
-                    </div>
-                    <div class="form-field-checkbox">
-                        <label for="bluelights">Utryckning</label>
-                        <input type="checkbox" id="bluelights" name="bluelights">
-                    </div>
-                </div>
-                <button class="login-button" id="search">Sök</button>
-            </div>
-            <div class="cars-container" id="cars-container">
-
+    <div class="all-container">
+        <div class="top-div">
+            <p id="name"></p>
+            <div class="profile-button" id="profile-button">
+                <img src="../Images/profile.png" alt="Profile Icon">
             </div>
         </div>
-    </div>
+        <div class="profile-menu" id="profile-menu">
+            <ul>
+                <li><a href="../HTML/my_bookings.html">Mina bokningar</a></li>
+                <li><a href="../HTML/todays_bookings.html">Bokningar idag</a></li>
+                <div class="separator"></div>
+                <li><a href="#" id="logout">Logga ut</a></li>
+            </ul>
+        </div>
+
+
+        <div id="top-container">
+            <div id="center-container">
+                <div class="login-container">
+                    <h2 class="page-title">Boka bil</h2>
+                    <div class="form-field" id="pickup-field">
+                        <label for="pickup-date" class="pickup-label">Starttid:</label>
+
+                        <input type="datetime-local" id="pickup-date" name="pickup-date" placeholder="Starttid"></input>
+                    </div>
+                    <div class="form-field">
+                        <label for="dropoff-date" class="pickup-label">Sluttid:</label>
+
+                        <input type="datetime-local" id="dropoff-date" name="dropoff-date" placeholder="Sluttid">
+                    </div>
+                    <div class="checkboxes">
+                        <div class="form-field-checkbox">
+                            <label for="radio">Radio</label>
+                            <input type="checkbox" id="radio" name="radio">
+                        </div>
+                        <div class="form-field-checkbox">
+                            <label for="bluelights">Utryckning</label>
+                            <input type="checkbox" id="bluelights" name="bluelights">
+                        </div>
+                    </div>
+                    <button class="login-button" id="search">Sök</button>
+                </div>
+                <div class="cars-container" id="cars-container">
+
+                </div>
+            </div>
+        </div>
 
 </body>
+
+
+</div>
 <footer class="copyright">
     &copy; 2023 Alexander Castman. Alla rättigheter förbehållna.
 </footer>
-
 
 </html>

@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Booking</title>
@@ -14,36 +13,38 @@
 <body>
     <script src="../JS/todays_bookings.js" type="module"></script>
 
-    <div class="top-div">
-        <p id="name"></p>
-        <div class="profile-button" id="profile-button">
-            <img src="../Images/profile.png" alt="Profile Icon">
+    <div class="all-container">
+
+        <div class="top-div">
+            <p id="name"></p>
+            <div class="profile-button" id="profile-button">
+                <img src="../Images/profile.png" alt="Profile Icon">
+            </div>
         </div>
-    </div>
 
 
-    <div class="profile-menu" id="profile-menu">
-        <ul>
-            <li><a href="../HTML/booking.html">Boka bil</a></li>
-            <li><a href="../HTML/my_bookings.html">Mina bokningar</a></li>
-            <div class="separator"></div>
-            <li><a href="#" id="logout">Logga ut</a></li>
-        </ul>
-    </div>
+        <div class="profile-menu" id="profile-menu">
+            <ul>
+                <li><a href="../HTML/booking.html">Boka bil</a></li>
+                <li><a href="../HTML/my_bookings.html">Mina bokningar</a></li>
+                <div class="separator"></div>
+                <li><a href="#" id="logout">Logga ut</a></li>
+            </ul>
+        </div>
 
-    <div id="top-container">
-        <div id="center-container">
-            <div class="login-container" id="my-booking-panel">
-                <h2>Bokningar idag</h2>
+        <div id="top-container">
+            <div id="center-container">
+                <div class="login-container" id="my-booking-panel">
+                    <h2 class="page-title">Bokningar idag</h2>
 
-                <div id="booking-entities">
+                    <div id="booking-entities">
 
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
-
-
 </body>
 <footer class="copyright">
     &copy; 2023 Alexander Castman. Alla rättigheter förbehållna.
