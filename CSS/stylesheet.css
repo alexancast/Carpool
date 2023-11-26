@@ -28,7 +28,7 @@ body::before {
 
 
 .login-container {
-    max-width: 500px;
+    /* max-width: 500px; */
     margin: auto auto;
     align-self: center;
     text-align: center;
@@ -488,8 +488,6 @@ input:focus {
     color: white;
     font-size: 12px;
     line-height: 2;
-
-
 }
 
 #booking-entities {
