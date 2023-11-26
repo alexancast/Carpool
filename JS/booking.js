@@ -82,6 +82,14 @@ search.addEventListener("click", function (event) {
     const pickupDateInput = document.getElementById("pickup-date");
     const dropoffDateInput = document.getElementById("dropoff-date");
 
+    pickupDateInput.addEventListener("input", function () {
+        removeAllCarEntities();
+    });
+
+    dropoffDateInput.addEventListener("input", function () {
+        removeAllCarEntities();
+    });
+
     // Parse the input values as Date objects
     const pickupDate = new Date(pickupDateInput.value);
     const dropoffDate = new Date(dropoffDateInput.value);
