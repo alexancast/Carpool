@@ -442,7 +442,7 @@ input:focus {
 }
 
 /* Media query för telefoner med en max skärmstorlek på 768px */
-@media (max-width: 768px) {
+@media (max-width: 900) {
     #center-container {
         width: 90%;
     }
@@ -450,7 +450,7 @@ input:focus {
 
 #center-container {
     text-align: center;
-    width: 50%;
+    width: 35%;
     overflow-y: auto;
     /* box-shadow: #000; */
     /* border-radius: 15px; */
