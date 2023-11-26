@@ -124,6 +124,8 @@ function searchCars() {
 
 function bookCar(reg, pickupDate, dropoffDate, user, booking_id) {
 
+    removeAllCarEntities();
+
     // Get a key for a new Post.
     const newPostKey = push(child(ref(database), "cars/" + reg + "/bookings/")).key;
 
@@ -144,11 +146,14 @@ function bookCar(reg, pickupDate, dropoffDate, user, booking_id) {
     // Use the set function to add the booking to the database
     set(bookingRef, bookingData)
         .then(() => {
+
+
             // console.log(`Booking with ID ${booking_id} added successfully.`);
         })
         .catch((error) => {
             // console.error(`Error adding booking: ${error}`);
         });
+
 
 }
 
@@ -192,10 +197,16 @@ monitorAuthState();
 const parentContainer = document.getElementById("cars-container");
 
 // Function to create a new car entity
-function createCarEntity(licensePlate, radio, utryckning, carKey) {
+function createCarEntity(licensePlate, radio, utryckning, carKey, index) {
+
     // Create the main div for the car
     const carDiv = document.createElement("div");
     carDiv.classList.add("car");
+
+    //Delay animation
+    const animationDelay = index * 0.1; // Adjust the delay as needed
+    carDiv.style.animationDelay = `${animationDelay}s`;
+
 
     // Set the car key as a data attribute
     carDiv.dataset.carKey = carKey;
@@ -231,7 +242,8 @@ function createCarEntity(licensePlate, radio, utryckning, carKey) {
 
 // Function to create and add car entities to the parent container
 function addCarEntitiesToContainer(carsData) {
-    removeAllCarEntities();
+
+    var index = 0;
 
     for (const carKey in carsData) {
         const car = carsData[carKey];
@@ -269,7 +281,9 @@ function addCarEntitiesToContainer(carsData) {
 
         // Only create a car entity if both conditions are met
         if (showBluelights && showRadio && carAvailable) {
-            createCarEntity(car.reg, car.radio, car.bluelights, carKey);
+            createCarEntity(car.reg, car.radio, car.bluelights, carKey, index);
+            index++;
+
         }
 
     }
@@ -309,19 +323,26 @@ parentContainer.addEventListener("click", function (event) {
         const user = auth.currentUser;
         const bookingID = generateBookingID();
 
-
-
         // Call the bookCar function with the carKey
         bookCar(carKey, pickup_date.value, dropoff_date.value, user.email, bookingID);
     }
 });
 
-// Function to remove all car entities from the container
 function removeAllCarEntities() {
-    while (parentContainer.firstChild) {
-        parentContainer.removeChild(parentContainer.firstChild);
-    }
+    const cars = document.querySelectorAll('.car');
+
+    cars.forEach(car => {
+        if (car.parentElement === parentContainer) {
+            parentContainer.removeChild(car);
+        }
+    });
 }
+
+
+
+
+
+
 
 
 // Function to generate a unique booking ID

@@ -55,6 +55,8 @@ h2 {
     font-size: 20px;
     font-weight: lighter;
     color: white;
+    margin-bottom: 40px;
+
 }
 
 h1 {
@@ -129,6 +131,24 @@ h1 {
     margin: 10px;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.3);
+    opacity: 0%;
+    animation: drop-down 0.7s forwards ease-out;
+    /* Add a CSS transition for opacity */
+
+}
+
+@keyframes drop-down {
+
+    0% {
+        opacity: 0%;
+        transform: translateY(100%);
+    }
+
+    100% {
+        transform: translateY(0px);
+        opacity: 100%;
+    }
+
 }
 
 .car-details {
@@ -215,6 +235,8 @@ h1 {
     margin: 10px;
     align-items: left;
     flex-direction: row;
+    opacity: 0%;
+    animation: drop-down 0.7s forwards ease-out;
 }
 
 .booking-entry p {
@@ -313,6 +335,29 @@ h1 {
     text-align: right;
     color: white;
     font-size: 10px;
+    animation: fade-in 2s forwards;
+    opacity: 0%;
+}
+
+
+@keyframes fade-out {
+    0% {
+        opacity: 100%;
+    }
+
+    100% {
+        opacity: 0%;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 100%;
+    }
 }
 
 input {
@@ -443,4 +488,10 @@ input:focus {
     color: white;
     font-size: 12px;
     line-height: 2;
+
+
+}
+
+#booking-entities {
+    animation: fade-in 2s ease-in-out forwards;
 }

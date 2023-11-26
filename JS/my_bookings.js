@@ -128,18 +128,21 @@ async function displayBookings() {
     } else {
         for (let i = 0; i < allBookings.length; i++) {
             const element = allBookings[i];
-            displayBooking(element);
+            displayBooking(element, i);
         }
 
     }
 
 }
 
-async function displayBooking(booking) {
+async function displayBooking(booking, index) {
 
     // Create a new div for each booking
     const bookingDiv = document.createElement('div');
     bookingDiv.classList.add('booking-entry'); // Add a CSS class for styling
+
+    const animationDelay = index * 0.1; // Adjust the delay as needed
+    bookingDiv.style.animationDelay = `${animationDelay}s`;
 
     // Create a container for text content (left content)
     const textContentContainer = document.createElement('div');
