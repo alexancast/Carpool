@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
 import { getDatabase, ref, push, onValue, update, child } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
-import { sha256 } from "../JS/encryption.js"
+import { createLodingAnimation, loadingAnimation, removeLoadingContainer } from "../JS/loading.js"
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -61,6 +61,9 @@ button.addEventListener("click", async function () {
 
 async function loadBookings() {
 
+    const parentContainer = document.querySelector(".login-container");
+    createLodingAnimation(parentContainer);
+
     // Hämta alla bilar från databasen
     const bilarRef = ref(database, 'cars');
     allBookings.length = 0;
@@ -96,6 +99,7 @@ async function loadBookings() {
             return pickupDateA - pickupDateB;
         });
 
+        removeLoadingContainer();
         displayBookings();
 
     });

@@ -2,7 +2,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
 import { getDatabase, ref, push, onValue, update, child, set } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
-import { sha256 } from "../JS/encryption.js"
+import { createLodingAnimation, loadingAnimation, removeLoadingContainer } from "../JS/loading.js"
 
 
 // Your web app's Firebase configuration
@@ -31,7 +31,12 @@ function setMinTime() {
         const year = date.getFullYear();
         const month = String(date.getMonth() + 1).padStart(2, '0');
         const day = String(date.getDate()).padStart(2, '0');
-        const hours = String(date.getHours() + 1).padStart(2, '0');
+        var hours = String(date.getHours()).padStart(2, '0');
+
+        if (parseInt(hours) + 1 <= 23) {
+            hours = parseInt(hours) + 1;
+        }
+
         const minutes = String(date.getMinutes()).padStart(2, '0');
         return `${year}-${month}-${day}T${hours}:${minutes}`;
     }
@@ -49,7 +54,7 @@ function setMinTime() {
     // Set the min attribute for dropoff-date input, initially same as pickup date
     const dropoffDateInput = document.getElementById("dropoff-date");
     dropoffDateInput.setAttribute("min", currentDateTime);
-    dropoffDateInput.setAttribute("value", currentDateTime);
+    dropoffDateInput.setAttribute("value", dropoffTime);
 
     // Add an event listener to pickupDateInput to update the min attribute of dropoffDateInput when it changes
     pickupDateInput.addEventListener("change", function () {
@@ -59,7 +64,7 @@ function setMinTime() {
 
 
 // Call setMinTime when the document is fully loaded
-window.onload = setMinTime;
+window.onload = function () { setMinTime(); loadingAnimation(); }
 
 
 // Initialize Firebase
@@ -101,26 +106,36 @@ search.addEventListener("click", function (event) {
     if (dropoffDate <= pickupDate || dropoffDate < minDropoffTime) {
         alert("Bil kan inte bokas kortare än 15 minuter.");
     } else {
+
         searchCars();
     }
 });
 
 
-function searchCars() {
+async function searchCars() {
+
+    const parentContainer = document.querySelector(".login-container");
 
     removeAllCarEntities();
+    await createLodingAnimation(parentContainer);
 
     // Hämta alla bilar från databasen
     const bilarRef = ref(database, 'cars');
 
     onValue(bilarRef, (snapshot) => {
         const data = snapshot.val();
+
+        const p = document.getElementById("no-search-results");
+        if (p != null) {
+            p.parentElement.removeChild(p);
+
+        }
+
         addCarEntitiesToContainer(data);
 
     });
 
 }
-
 
 function bookCar(reg, pickupDate, dropoffDate, user, booking_id) {
 
@@ -147,11 +162,9 @@ function bookCar(reg, pickupDate, dropoffDate, user, booking_id) {
     set(bookingRef, bookingData)
         .then(() => {
 
-
-            // console.log(`Booking with ID ${booking_id} added successfully.`);
         })
         .catch((error) => {
-            // console.error(`Error adding booking: ${error}`);
+
         });
 
 
@@ -288,6 +301,8 @@ function addCarEntitiesToContainer(carsData) {
 
     }
 
+    removeLoadingContainer();
+
     // Check if there are children in the parent container
     if (parentContainer.children.length > 0) {
         // parentContainer.style.display = "block"; // Set it to 'block' if it has children
@@ -337,11 +352,6 @@ function removeAllCarEntities() {
         }
     });
 }
-
-
-
-
-
 
 
 

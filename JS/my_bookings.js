@@ -2,6 +2,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebas
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
 import { getDatabase, ref, push, onValue, update, child } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
 import { sha256 } from "../JS/encryption.js"
+import { createLodingAnimation, loadingAnimation, removeLoadingContainer } from "../JS/loading.js"
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -67,6 +68,9 @@ async function loadBookings() {
     const bilarRef = ref(database, 'cars');
     allBookings.length = 0;
 
+    const parentContainer = document.querySelector(".login-container");
+    createLodingAnimation(parentContainer);
+
     onValue(bilarRef, (snapshot) => {
         const data = snapshot.val();
 
@@ -106,6 +110,7 @@ async function loadBookings() {
             return pickupDateA - pickupDateB;
         });
 
+        removeLoadingContainer();
         displayBookings();
 
     });
