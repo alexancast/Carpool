@@ -139,10 +139,9 @@ async function searchCars() {
 
 function bookCar(reg, pickupDate, dropoffDate, user, booking_id) {
 
-    removeAllCarEntities();
 
     // Get a key for a new Post.
-    const newPostKey = push(child(ref(database), "cars/" + reg + "/bookings/")).key;
+    push(child(ref(database), "cars/" + reg + "/bookings/")).key;
 
     // Create a booking object with separate values
     const bookingData = {
@@ -161,6 +160,8 @@ function bookCar(reg, pickupDate, dropoffDate, user, booking_id) {
     // Use the set function to add the booking to the database
     set(bookingRef, bookingData)
         .then(() => {
+            searchCars();
+
 
         })
         .catch((error) => {
@@ -175,7 +176,6 @@ button.addEventListener("click", async function () {
     try {
         await logout();
     } catch (error) {
-        // Handle any errors here
     }
 });
 
@@ -210,7 +210,7 @@ monitorAuthState();
 const parentContainer = document.getElementById("cars-container");
 
 // Function to create a new car entity
-function createCarEntity(licensePlate, radio, utryckning, carKey, index) {
+function createCarEntity(car, carKey, index) {
 
     // Create the main div for the car
     const carDiv = document.createElement("div");
@@ -230,11 +230,19 @@ function createCarEntity(licensePlate, radio, utryckning, carKey, index) {
 
     // Create the heading for license plate and model
     const heading = document.createElement("h1");
-    heading.textContent = `${licensePlate}`;
+    heading.textContent = `${car.reg}`;
 
     // Create a paragraph for radio and utryckning
     const details = document.createElement("p");
-    details.textContent = `Radio: ${radio} Utryckning: ${utryckning}`;
+    details.textContent = `${car.make} ${car.model} ${car.year} ${car.color}`;
+
+    const hasRadio = car.radio != null;
+    const hasBluelights = car.bluelights;
+
+    details.textContent += hasRadio || hasBluelights ? " | " : "";
+    details.textContent += hasRadio ? car.radio : "";
+    details.textContent += hasBluelights ? " Utryckning" : "";
+
 
     // Append the heading and details to the car details div
     carDetailsDiv.appendChild(heading);
@@ -290,11 +298,11 @@ function addCarEntitiesToContainer(carsData) {
 
         // Check if radioCheckbox is true and the car has radio
         // OR if radioCheckbox is false (show all cars)
-        const showRadio = radio.checked ? car.radio : true;
+        const showRadio = radio.checked ? car.radio != null : true;
 
         // Only create a car entity if both conditions are met
         if (showBluelights && showRadio && carAvailable) {
-            createCarEntity(car.reg, car.radio, car.bluelights, carKey, index);
+            createCarEntity(car, carKey, index);
             index++;
 
         }
