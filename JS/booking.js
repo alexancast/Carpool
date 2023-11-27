@@ -103,12 +103,12 @@ search.addEventListener("click", function (event) {
     const minDropoffTime = new Date(pickupDate);
     minDropoffTime.setMinutes(minDropoffTime.getMinutes() + 15);
 
-    // if (dropoffDate <= pickupDate || dropoffDate < minDropoffTime) {
-    //     alert("Bil kan inte bokas kortare än 15 minuter.");
-    // } else {
+    if (dropoffDate <= pickupDate || dropoffDate < minDropoffTime) {
+        alert("Bil kan inte bokas kortare än 15 minuter.");
+    } else {
 
-    searchCars();
-    // }
+        searchCars();
+    }
 });
 
 
