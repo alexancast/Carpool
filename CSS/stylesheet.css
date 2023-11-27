@@ -469,8 +469,8 @@ input:focus {
 
 #center-container {
     background: inherit !important;
-    -webkit-backdrop-filter: blur(20px) !important;
-    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(50px) !important;
+    backdrop-filter: blur(50px) !important;
 }
 
 #top-container#center-container {
