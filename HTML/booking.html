@@ -20,19 +20,22 @@
 
 <body>
     <script src="../JS/booking.js" type="module"></script>
+    <script src="../JS/sidemenu.js" type="module"></script>
     <div class="all-container">
         <div class="top-div">
-            <p id="name"></p>
             <div class="profile-button" id="profile-button">
                 <img src="../Images/profile.png" alt="Profile Icon">
             </div>
         </div>
         <div class="profile-menu" id="profile-menu">
             <ul>
-                <li><a href="../HTML/my_bookings.html">Mina bokningar</a></li>
-                <li><a href="../HTML/todays_bookings.html">Bokningar idag</a></li>
+                <li>
+                    <p id="name"></p>
+                </li>
+                <li><a href="../HTML/my_bookings.html" class="sidemenu-link">Mina bokningar</a></li>
+                <li><a href="../HTML/todays_bookings.html" class="sidemenu-link">Bokningar idag</a></li>
                 <div class="separator"></div>
-                <li><a href="#" id="logout">Logga ut</a></li>
+                <li><a href="#" id="logout" class="sidemenu-link">Logga ut</a></li>
             </ul>
         </div>
 

@@ -192,16 +192,35 @@ h1 {
 }
 
 .profile-menu li {
-    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    /* margin: auto auto; */
 }
 
 .profile-menu a {
+    display: block;
     text-decoration: none;
-    color: #333;
+    color: white;
+    padding: 10px;
+    width: auto;
+
 }
 
 .profile-menu a:hover {
-    background-color: #f0f0f0;
+    color: #0c3256;
+    background-color: white;
+    border-radius: 5px;
+
+
+}
+
+#name {
+    display: block;
+    text-decoration: none;
+    color: white;
+    /* padding: 10px; */
+    width: auto;
+    font-weight: bold;
 }
 
 
@@ -326,28 +345,28 @@ h1 {
 
 .profile-menu {
     position: fixed;
-    top: 60px;
-    right: 20px;
-    width: 200px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    /* box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); */
-    display: none;
-    z-index: 3;
+    top: 0px;
+    right: -300px;
+    width: 250px;
+    height: 100%;
+    background-color: #0c3256;
+    box-shadow: inset 0 0 20px 5px rgba(0, 0, 0, 0.5);
+    display: block;
+    transition: right 1s;
+    z-index: 1;
+    padding-top: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+
 }
 
-#name {
-    position: relative;
-    z-index: 2;
-    align-self: right;
-    text-align: right;
-    color: white;
-    font-size: 10px;
-    animation: fade-in 2s forwards;
-    opacity: 0%;
+.profile-menu.active {
+    right: 0;
 }
 
+.profile-menu.inactive {
+    right: -300px;
+}
 
 @keyframes fade-out {
     0% {

@@ -1,4 +1,3 @@
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
 import { getDatabase, ref, push, onValue, update, child, set } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
@@ -196,12 +195,7 @@ async function monitorAuthState() {
     })
 }
 
-const profileButton = document.getElementById('profile-button');
-const profileMenu = document.getElementById('profile-menu');
 
-profileButton.addEventListener('click', () => {
-    profileMenu.style.display = profileMenu.style.display === 'block' ? 'none' : 'block';
-});
 
 
 monitorAuthState();

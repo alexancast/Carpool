@@ -21,14 +21,9 @@ const database = getDatabase(app)
 
 const allBookings = [];
 const button = document.getElementById("logout");
-const profileButton = document.getElementById('profile-button');
-const profileMenu = document.getElementById('profile-menu');
 const name = document.getElementById("name");
 const bookingPanel = document.getElementById('booking-entities'); // Get the booking panel div
 
-profileButton.addEventListener('click', () => {
-    profileMenu.style.display = profileMenu.style.display === 'block' ? 'none' : 'block';
-});
 
 async function monitorAuthState() {
     onAuthStateChanged(auth, user => {

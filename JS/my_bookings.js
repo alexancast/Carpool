@@ -1,7 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
 import { getDatabase, ref, push, onValue, update, child } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
-import { sha256 } from "../JS/encryption.js"
 import { createLodingAnimation, loadingAnimation, removeLoadingContainer } from "../JS/loading.js"
 
 // Your web app's Firebase configuration
@@ -24,14 +23,9 @@ const allBookings = [];
 
 
 const button = document.getElementById("logout");
-const profileButton = document.getElementById('profile-button');
-const profileMenu = document.getElementById('profile-menu');
 const name = document.getElementById("name");
 const bookingPanel = document.getElementById('booking-entities'); // Get the booking panel div
 
-profileButton.addEventListener('click', () => {
-    profileMenu.style.display = profileMenu.style.display === 'block' ? 'none' : 'block';
-});
 
 async function monitorAuthState() {
     onAuthStateChanged(auth, user => {
