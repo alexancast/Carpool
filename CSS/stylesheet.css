@@ -533,9 +533,9 @@ input[type="checkbox"]:checked+label {
     color: white;
 }
 
-.form-field-checkbox:last-child {
+/* .form-field-checkbox:last-child {
     margin-right: 0;
-}
+} */
 
 .pickup-label {
     color: white;
