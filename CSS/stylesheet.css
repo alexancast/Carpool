@@ -525,9 +525,9 @@ input[type="checkbox"]:checked+label {
 
 
 .form-field-checkbox {
-    display: inline-block;
+    display: inline-flex;
     align-items: center;
-    /* margin: 10px; */
+    margin: auto auto;
     margin-bottom: 0px;
     margin-top: 0px;
     color: white;
