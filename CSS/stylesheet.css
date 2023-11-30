@@ -507,7 +507,7 @@ input:focus {
 }
 
 .checkboxes {
-    display: flex;
+    /* display: inline-block; */
     justify-content: center;
     margin: 20px;
 
